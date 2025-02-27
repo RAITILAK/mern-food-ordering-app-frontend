@@ -37,10 +37,55 @@ export const useGetMyUser = () => {
   return { currentUser, isLoading };
 };
 
+// type CreateUserRequest = {
+//   auth0Id: string;
+//   email: string;
+// };
+
+//debug
+
 type CreateUserRequest = {
   auth0Id: string;
   email: string;
+  name?: string;
+  addressLine1?: string;
+  city?: string;
+  country?: string;
 };
+
+// debugg
+// export const useCreateMyUser = () => {
+//   const { getAccessTokenSilently } = useAuth0();
+
+//   const createMyUserRequest = async (user: CreateUserRequest) => {
+//     const accessToken = await getAccessTokenSilently();
+//     const response = await fetch(`${API_BASE_URL}/api/my/user`, {
+//       method: "POST",
+//       headers: {
+//         Authorization: `Bearer ${accessToken}`,
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(user),
+//     });
+//     if (!response.ok) {
+//       throw new Error("Failed to create user");
+//     }
+//   };
+
+//   const {
+//     mutateAsync: createUser,
+//     isLoading,
+//     isError,
+//     isSuccess,
+//   } = useMutation(createMyUserRequest);
+
+//   return {
+//     createUser,
+//     isError,
+//     isLoading,
+//     isSuccess,
+//   };
+// };
 
 export const useCreateMyUser = () => {
   const { getAccessTokenSilently } = useAuth0();
@@ -53,8 +98,9 @@ export const useCreateMyUser = () => {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(user), // Now sending all user data
     });
+
     if (!response.ok) {
       throw new Error("Failed to create user");
     }

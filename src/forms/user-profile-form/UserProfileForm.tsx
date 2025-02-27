@@ -30,17 +30,50 @@ type Props = {
   currentUser: User;
   onSave: (UserProfileData: UserFormData) => void;
   isLoading: boolean;
+  title?: string;
+  buttonText?: string;
 };
 
-const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
+const UserProfileForm = ({
+  onSave,
+  isLoading,
+  currentUser,
+  title = "User Profile",
+  buttonText = "Submit",
+}: Props) => {
   const form = useForm<UserFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: currentUser,
   });
 
+  //debug
+  // const form = useForm<UserFormData>({
+  //   resolver: zodResolver(formSchema),
+  //   defaultValues: {
+  //     email: "",
+  //     name: "",
+  //     addressLine1: "",
+  //     city: "",
+  //     country: "",
+  //   },
+  // });
+
   useEffect(() => {
     form.reset(currentUser);
   }, [currentUser, form]);
+
+  //debug
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     form.reset({
+  //       email: currentUser.email || "",
+  //       name: currentUser.name || "",
+  //       addressLine1: currentUser.addressLine1 || "",
+  //       city: currentUser.city || "",
+  //       country: currentUser.country || "",
+  //     });
+  //   }
+  // }, [currentUser]);
 
   return (
     <Form {...form}>
@@ -49,7 +82,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
         className="space-y-4 bg-gray-50 rounded-lg md:p-10"
       >
         <div className="">
-          <h2 className="text-2xl font-bold">User Profile Form</h2>
+          <h2 className="text-2xl font-bold">{title}</h2>
           <FormDescription>
             View and change your profile information here
           </FormDescription>
@@ -132,7 +165,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
             type="submit"
             className="bg-orange-500 hover:bg-gray-600 transition-colors duration-200"
           >
-            Submit
+            {buttonText}
           </Button>
         )}
       </form>
