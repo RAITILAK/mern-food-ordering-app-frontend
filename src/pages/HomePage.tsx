@@ -18,8 +18,15 @@ const HomePage = () => {
           Tuck into a takeaway today
         </h1>
         <span className="text-xl">Food is just a click away!</span>
+
+        {/* ✅ Added info banner */}
+        <div className="mb-4 px-4 py-2 text-sm bg-yellow-100 text-gray-800 border-l-4 border-yellow-500 rounded">
+          🔍 <strong>Demo Info:</strong> Restaurants are available only in{" "}
+          <strong>London</strong> and <strong>Manchester</strong>. Try searching
+          for these cities.
+        </div>
         <SearchBar
-          placeHolder="Search by city or Town"
+          placeHolder="Try London or Manchester (demo data)"
           onSubmit={handleSearchSubmit}
         />
       </div>
