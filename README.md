@@ -1,3 +1,64 @@
+# MearnEats.com – Frontend
+
+The frontend for **MearnEats.com**, a modern full-stack food delivery platform built with React, Vite, and Tailwind CSS. It offers a seamless user experience for browsing restaurants, placing orders, and managing profiles.
+
+---
+
+## 🚀 Features
+
+- Responsive user interface (mobile & desktop)
+- Authentication with Auth0
+- Browse restaurants and food items
+- Search with filters, sorting, and pagination
+- Add/remove items from cart
+- Checkout with Stripe payment integration
+- View and track order status
+- Edit user profile and delivery address
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** (Vite)
+- **TypeScript**
+- **Tailwind CSS**
+- **shadcn/ui**
+- **React Hook Form**
+- **Zod**, **Axios**
+- **Auth0** (Authentication)
+- **Stripe** (Payments)
+
+---
+
+## 🖥️ Live Demo
+
+🌐 https://mern-food-ordering-app-frontend-6mth.onrender.com/  
+
+
+---
+
+## 📦 Getting Started
+
+### Clone & Run:
+
+```bash
+git clone https://github.com/RAITILAK/mearneats-frontend
+cd mearneats-frontend
+npm install
+npm run dev
+🔐 Environment Variables
+Create a .env file in the root folder:
+
+env
+Copy
+Edit
+VITE_API_BASE_URL=http://localhost:3000
+VITE_AUTH0_CLIENT_ID=your-client-id
+VITE_AUTH0_DOMAIN=your-auth0-domain
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
